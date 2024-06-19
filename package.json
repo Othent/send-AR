@@ -1,0 +1,26 @@
+{
+  "name": "send-ar",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "bun run prettier && next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prettier": "prettier --write ."
+  },
+  "dependencies": {
+    "@othent/kms": "^1.0.12",
+    "arweave": "^1.15.1",
+    "next": "14.2.4",
+    "prettier": "^3.3.2",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18"
+  }
+}
