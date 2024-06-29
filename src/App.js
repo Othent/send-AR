@@ -3,7 +3,11 @@ import './App.css';
 import * as othent from "@othent/kms";
 import Arweave from "arweave";
 
-const arweave = Arweave.init({});
+const arweave = Arweave.init({
+  host: 'arweave.net',
+  port: 443,
+  protocol: 'https'
+});
 
 
 function App() {
