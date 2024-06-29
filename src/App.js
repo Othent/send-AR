@@ -5,6 +5,7 @@ import Arweave from "arweave";
 
 const arweave = Arweave.init({});
 
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [walletAddress, setWalletAddress] = useState("");
