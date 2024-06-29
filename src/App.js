@@ -1,12 +1,11 @@
-"use client";
-import styles from "./page.module.css";
-import { useState } from "react";
+import React, { useState } from 'react';
+import './App.css';
 import * as othent from "@othent/kms";
 import Arweave from "arweave";
 
 const arweave = Arweave.init({});
 
-export default function Home() {
+function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [walletAddress, setWalletAddress] = useState("");
   const [amount, setAmount] = useState("");
@@ -52,7 +51,9 @@ export default function Home() {
       const txID = transaction.id;
 
       if (postedTxn.status === 200) {
-        setTransactionStatus(`Transaction successful. View on <a href="https://viewblock.io/arweave/tx/${txID}" target="_blank">Viewblock</a>`);
+        setTransactionStatus(
+          `Transaction successful. View on <a href="https://viewblock.io/arweave/tx/${txID}" target="_blank">Viewblock</a>`
+        );
       } else {
         setTransactionStatus("Transaction failed. Please try again.");
       }
@@ -71,46 +72,46 @@ export default function Home() {
   };
 
   return (
-    <main className={styles.main}>
+    <main className="main">
       {!isLoggedIn ? (
-        <button className={styles.loginButton} onClick={handleLogin}>
+        <button className="loginButton" onClick={handleLogin}>
           Login with Othent
         </button>
       ) : (
-        <div className={styles.container}>
-          <p className={styles.userInfo}>Email: {userEmail}</p>
-          <p className={styles.userInfo}>Wallet Address: {userWalletAddress}</p>
-          <p className={styles.balance}>Current Balance: {balance} AR</p>
+        <div className="container">
+          <p className="userInfo">Email: {userEmail}</p>
+          <p className="userInfo">Wallet Address: {userWalletAddress}</p>
+          <p className="balance">Current Balance: {balance} AR</p>
           <input
             type="text"
             placeholder="Recipient wallet address"
             value={walletAddress}
             onChange={(e) => setWalletAddress(e.target.value)}
-            className={styles.input}
+            className="input"
           />
           <input
             type="number"
             placeholder="Amount"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className={styles.input}
+            className="input"
           />
-          <button className={styles.sendButton} onClick={handleSend}>
+          <button className="sendButton" onClick={handleSend}>
             Send
           </button>
           {confirmationVisible && (
-            <div className={styles.confirmationModal}>
+            <div className="confirmationModal">
               <p>
                 You are about to send {amount} AR to {walletAddress}
               </p>
-              <div className={styles.confirmationButtons}>
+              <div className="confirmationButtons">
                 <button
-                  className={styles.confirmButton}
+                  className="confirmButton"
                   onClick={handleConfirm}
                 >
                   Confirm
                 </button>
-                <button className={styles.cancelButton} onClick={handleCancel}>
+                <button className="cancelButton" onClick={handleCancel}>
                   Cancel
                 </button>
               </div>
@@ -125,3 +126,5 @@ export default function Home() {
     </main>
   );
 }
+
+export default App;
