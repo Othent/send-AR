@@ -2,7 +2,7 @@ import React, { useState, ReactNode, useMemo, useEffect } from 'react';
 import { StatusContext } from '../hooks/useStatus';
 import { Othent } from '@othent/kms';
 import Arweave from 'arweave';
-import { APP_INFO } from '../utils/constants';
+import { APP_INFO, DEFAULT_GATEWAY } from '../utils/constants';
 
 export const StatusProvider: React.FC<{ children: ReactNode }> = ({
     children,
@@ -13,7 +13,7 @@ export const StatusProvider: React.FC<{ children: ReactNode }> = ({
         () => new Othent({ appInfo: APP_INFO, persistLocalStorage: true }),
         []
     );
-    const arweave = useMemo(() => Arweave.init({}), []);
+    const arweave = useMemo(() => Arweave.init(DEFAULT_GATEWAY), []);
 
     useEffect(() => {
         if (othent.getSyncUserDetails()?.walletAddress) setConnected(true);
