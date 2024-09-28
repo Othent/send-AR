@@ -13,7 +13,7 @@ export function UserInfo() {
                     <img
                         className="w-20 rounded-full"
                         src={othent.getSyncUserDetails()?.picture}
-                        alt="profile picture"
+                        alt="avatar"
                     />
                 )}
             </div>
