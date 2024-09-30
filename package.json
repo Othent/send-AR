@@ -1,6 +1,6 @@
 {
     "name": "send-ar",
-    "version": "0.1.1",
+    "version": "1.0.0",
     "private": true,
     "type": "module",
     "scripts": {
@@ -10,7 +10,7 @@
         "preview": "vite preview"
     },
     "dependencies": {
-        "@othent/kms": "^2.1.0",
+        "@othent/kms": "^2.1.1",
         "arweave": "^1.15.1",
         "react": "^18.3.1",
         "react-dom": "^18.3.1"
